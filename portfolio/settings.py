@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jobs.apps.JobsConfig',
+    'blog.apps.BlogConfig',
+    'jobs.apps.JobConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,12 +77,12 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "portfoliodb",
-        "USER": "postgres",
-        "PASSWORD": "lukinhas2",
-        "HOST": "localhost",
-        "PORT": "5432",
+        "ENGINE": 'django.db.backends.postgresql_psycopg2',
+        "NAME": 'portfoliodb',
+        "USER": 'postgres',
+        "PASSWORD": 'lukinhas2',
+        "HOST": 'localhost',
+        "PORT": '5432',
     }
 }
 
