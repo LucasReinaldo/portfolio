@@ -41,3 +41,8 @@ footer p {
         column-count: 5;
     }
 }
+
+a.custom-card,
+a.custom-card:hover {
+    color: inherit;
+}
