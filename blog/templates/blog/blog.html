@@ -9,6 +9,7 @@
         <title>Lucas Melo | Blog</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,7 +32,7 @@
         </style>
         
         <!-- Custom styles for this template -->
-        <link href="/..album.css" rel="stylesheet">
+        <link href="/blog/templates/blog/album.css" rel="stylesheet">
 
     </head>
 
@@ -45,19 +46,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">JOBS <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'home' %}">JOBS</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'blog' %}">BLOG</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'blog' %}">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-1 pr-1" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME <i class="fas fa-file-download"></i></a>
                         </li>
                     </ul>
-                    {% comment %} <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form> {% endcomment %}
                 </div>
             </nav>
         </header>
@@ -66,7 +63,11 @@
             <div class="album container">
                 <h1 class="pt-3 text-center">Welcome to Lucas Blog!</h1>
                 <br>
-                <h3>Latest Posts</h3>
+                <h4>Latest Posts</h4>
+                <form class="form-inline my-1 my-lg-0">
+                    <input class="form-control form-control-sm mr-sm-1" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-outline-secondary my-1 my-sm-0" type="submit">Search</button>
+                </form>
                 <hr>
             </div>
 
@@ -77,14 +78,14 @@
 
                         {% for blog in blogs.all %}
                             <a href="{% url 'post' blog.id %}" class="text-muted">
-                            <div class="card small">
-                                <img class="card-img-top img-fluid text-dark" src="{{ blog.image.url }}" alt="Card image cap">
-                                <div class="card-body">
-                                    <h6 class="card-title ">{{ blog.title }}</h6>
-                                    <p class="card-text">{{ blog.summary }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ blog.pub_date }}</small></p>
+                                <div class="card small">
+                                    <img class="card-img-top img-fluid text-dark" src="{{ blog.image.url }}" alt="Card image cap">
+                                    <div class="card-body">
+                                        <h6 class="card-title">{{ blog.title }}</h6>
+                                        <p class="card-text">{{ blog.summary }}</p>
+                                        <p class="card-text"><small class="text-muted">{{ blog.pub_date }}</small></p>
+                                    </div>
                                 </div>
-                            </div>
                             </a>
                         {% endfor %}
 

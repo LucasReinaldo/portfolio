@@ -46,36 +46,32 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'home' %}">JOBS <span class="sr-only">(current)</span></a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'home' %}">JOBS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'blog' %}">BLOG</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'blog' %}">BLOG</a>
+                            <a class="nav-link pl-1 pr-1" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME <i class="fas fa-file-download"></i></a>
                         </li>
                     </ul>
-                    {% comment %} <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form> {% endcomment %}
                 </div>
             </nav>
         </header>
 
-        <main role="main">
+        <main role="main" class="bg-light">
             <section class="jumbotron text-center">
                 <div class="container pt-3">
                     <h1 class="jumbotron-heading">Hi, I'm Lucas.</h1>
-                    <p class="text-muted">I was born in São José/SC, Brazil. I arrived in Dublin in October/2018 and I am open to learning, prepared for the challenge of exercising new roles and activities with flexibility. I always try to keep myself updated, with the purpose of personal and professional improvement.</p>
+                    <p class="text-muted">I was born in São José/SC, Brazil. I arrived in Dublin/IE in October/2018 and I am open to learning, prepared for the challenge of exercising new roles and activities with flexibility. I always try to keep myself updated, with the purpose of personal and professional improvement.</p>
                     <img class="center rounded-circle" src="{% static 'profile.jpg'%}" height="250" />
                     <br><br>
                     <span style="font-size: 2em">
-                        <a href="https://www.facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook text-dark"></i></a>
-                        <a href="https://www.github.com" target="_blank" title="GitHub"><i class="fab fa-github text-dark"></i></a>
-                        <a href="mailto:lucasreinaldo.demelo@hotmail.com" target="_blank" title="Mail me"><i class="fas fa-envelope-open-text text-dark"></i></a>
-                        <a href="https://www.instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram text-dark"></i></a>
-                        <a href="https://www.linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin text-dark"></i></a>                        
+                        <a href="https://www.facebook.com/lucas.reinaldo.779" target="_blank" title="Facebook"><i class="fab fa-facebook text-dark"></i></a>
+                        <a href="https://github.com/LucasReinaldo" target="_blank" title="GitHub"><i class="fab fa-github text-dark"></i></a>
+                        <a href="mailto:lucasreinaldo.demelo@hotmail.com" target="_blank" title="lucasreinaldo.demelo@hotmail.com"><i class="fas fa-envelope-open-text text-dark"></i></a>
+                        <a href="https://www.instagram.com/lreinaldodemelo" target="_blank" title="Instagram"><i class="fab fa-instagram text-dark"></i></a>
+                        <a href="https://www.linkedin.com/in/lucas-reinaldo-de-melo" target="_blank" title="LinkedIn"><i class="fab fa-linkedin text-dark"></i></a>                        
                     </span>
                 </div>
             </section>
@@ -84,26 +80,18 @@
                 <div class="container">
                     <div class="row">
 
-                    {% comment %} Function {% endcomment %}
                     {% for job in jobs.all %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm bg-light">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="{{ job.image.url }}" role="img">
-                                <div class="card-body">
-                                    <p class="card-text">{{ job.summary }}</p>
-                                    {% comment %} 
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                        </div>
-                                        <small class="text-muted">9 mins</small>
-                                    </div> {% endcomment %}
+                        <div class="col-md-3">
+                            <a href="#" class="text-muted">
+                                <div class="card mb-3 shadow-sm bg-light">
+                                    <img class="bd-placeholder-img card-img-top" width="100%" height="175" src="{{ job.image.url }}" role="img">
+                                    <div class="card-body">
+                                        <p class="card-text"><small><strong>{{ job.summary }}</strong></small></p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         {% endfor %}
-                        {% comment %} End Function {% endcomment %}
 
                     </div>
                 </div>

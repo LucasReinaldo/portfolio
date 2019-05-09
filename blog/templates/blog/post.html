@@ -9,6 +9,7 @@
         <title>Lucas Melo | Post</title>
 
         <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -45,19 +46,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">JOBS <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'home' %}">JOBS</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'blog' %}">BLOG</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'blog' %}">BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-1 pr-1" href="{% static 'CV - Lucas Melo.pdf'%}">RESUME <i class="fas fa-file-download"></i></a>
                         </li>
                     </ul>
-                    {% comment %} <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form> {% endcomment %}
                 </div>
             </nav>
         </header>
@@ -65,7 +62,7 @@
         <main class="pt-5 bg-light" role="main">
             <div class="album container">
                 <h1 class="pt-3 text-center">{{ blog.title }}</h1>
-                <p class="text-right"><small class="text-muted">By: "Colocar nome aqui" | {{ blog.pub_date }}</small></p>
+                <p class="text-right"><small class="text-muted">By: "Name" | {{ blog.pub_date }}</small></p>
                 <hr>
                 <img class="card-img-top text-dark" src="{{ blog.image.url }}" height="500" max-width="100%" alt="Card image cap">
                 <p class="pt-3 text-justify">{{ blog.body }}</p>
