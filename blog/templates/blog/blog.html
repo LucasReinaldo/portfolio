@@ -6,7 +6,7 @@
             <h1 class="pt-3 text-center">Welcome to Lucas Blog!</h1>
             <br>
             <h4>Latest Posts</h4>
-            <form class="form-inline my-1 my-lg-0" enctype="multipart/form-data">
+            <form class="form-inline my-1 my-lg-0">
                 <input class="form-control form-control-sm mr-sm-1" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-sm btn-outline-secondary my-1 my-sm-0" type="submit">Search</button>
             </form>
@@ -19,12 +19,12 @@
                     <div class="card-columns rounded">
                     {% for blog in blogs.all %}
                         <a href="{% url 'post' blog.id %}" class="text-muted">
-                            <div class="card small">
+                            <div class="card small text-justify">
                                 <img class="card-img-top img-fluid text-dark" src="{{ blog.image.url }}" alt="Card image cap">
                                 <div class="card-body">
                                     <h6 class="card-title">{{ blog.title }}</h6>
                                     <p class="card-text">{{ blog.summary }}</p>
-                                    <p class="card-text"><small class="text-muted">{{ blog.pub_date }}</small></p>
+                                    <p class="card-text"><small class="text-muted">{{ blog.pub_date }} | {{ blog.writer }}</small></p>
                                 </div>
                             </div>
                         </a>

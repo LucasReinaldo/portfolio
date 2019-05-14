@@ -3,11 +3,18 @@
 {% block content %}
     <main class="pt-5 bg-light" role="main">
         <div class="album container col-9">
-            <h1 class="pt-3 text-center">{{ blog.title }}</h1>
-            <p class="text-right"><small class="text-muted">By: {{ blog.writer }} | {{ blog.pub_date }}</small></p>
+            <h1 class="pt-3 text-center">{{ post.title }}</h1>
+            <p class="text-right">
+                <small class="text-muted">By: {{ post.writer }} | {{ post.pub_date }}</small><br>
+                <a href="#" target="_blank" title="Share"><i class="far fa-share-square text-dark"></i></a> | 
+                <a href="javascript:{document.getElementById('upvote').submit()}" title="Like"><i class="far fa-thumbs-up text-dark">{{ post.votes }}</i></a>
+            </p>
+            <form method="POST" id="upvote" action="{% url 'upvote' post.id %}">{% csrf_token %}
+                <input type="hidden">
+            </form>
             <hr>
-            <img class="card-img-top text-dark" src="{{ blog.image.url }}" height="350" max-width="100%" alt="Card image cap">
-            <p class="pt-3 text-justify">{{ blog.body }}</p>
+            <img class="card-img-top text-dark" src="{{ post.image.url }}" height="325" max-width="100%" alt="Card image cap">
+            <p class="pt-3 text-justify">{{ post.body }}</p>
         </div>
     </main>
 {% endblock %}

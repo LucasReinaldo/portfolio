@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Blog(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=200)
     pub_date = models.DateTimeField()
     body = models.TextField()
     image = models.ImageField(upload_to='images/')
@@ -18,4 +18,3 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:200] + '[...]'
-
