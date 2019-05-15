@@ -4,8 +4,9 @@
     <main class="pt-5 bg-light" role="main">
         <div class="album container pt-5">
 
-            <form method="POST" action="{% url 'createpost' %}" enctype="multipart/form-data">{% csrf_token %}
-                <div class="form-group">
+            <form method="POST" action="{% url 'post_create' %}" enctype="multipart/form-data">{% csrf_token %}
+                {{ form.as_p }}
+                {% comment %} <div class="form-group">
                     <label for="Title">Title:</label>
                     <input name="title" type="text" class="form-control" id="Title" required>
                 </div>
@@ -16,7 +17,7 @@
                 <div class="form-group">
                     <label for="fileInput">File input</label>
                     <input name="fileInput" type="file" class="form-control-file" id="fileInput" required>
-                </div>
+                </div> {% endcomment %}
                 <button class="btn btn-md btn-primary btn-block" type="submit" value="post it">Post It.</button>
             </form>
         </div>

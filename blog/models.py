@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -16,5 +17,10 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+
     def summary(self):
         return self.body[:200] + '[...]'
+
+
+    def get_absolute_url(self):
+        return reverse('blog_post', kwargs={'pk': self.pk})
