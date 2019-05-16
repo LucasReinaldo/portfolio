@@ -32,7 +32,7 @@
         </style>
 
         <!-- Custom styles for this template -->
-        <link href="{% static 'portfolio/templates/base.css' %}" rel="stylesheet">
+        <link href="portfolio/templates/base.css" rel="stylesheet">
 
     </head>
 
@@ -56,7 +56,7 @@
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link pl-1 pr-1" href="{% url 'post_create' %}">CREATE POST</a>
+                            <a class="nav-link pl-1 pr-1" href="{% url 'create' %}">CREATE POST</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link pl-1 pr-1" href="javascript:{document.getElementById('logout').submit()}" onclick="">LOGOUT</a>

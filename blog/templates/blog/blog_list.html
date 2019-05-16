@@ -17,8 +17,8 @@
             <div class="container">
                 <div class="row">
                     <div class="card-columns rounded">
-                    {% for blog in object_list %}
-                        <a href="{% url 'post_detail' blog.id %}" class="text-muted">
+                    {% for blog in blogs.all %}
+                        <a href="{% url 'detail' blog.id %}" class="text-muted">
                             <div class="card small text-justify">
                                 <img class="card-img-top img-fluid text-dark" src="{{ blog.image.url }}" alt="Card image cap">
                                 <div class="card-body">
