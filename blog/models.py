@@ -20,7 +20,3 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:200] + '[...]'
-
-
-    def get_absolute_url(self):
-        return reverse('blog_post', kwargs={'pk': self.pk})

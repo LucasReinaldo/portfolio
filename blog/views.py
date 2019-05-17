@@ -18,37 +18,41 @@ def detail(request, blog_id):
 
 @login_required(login_url="/accounts/signup")
 def create(request):
-    if request.method == 'POST':
-        form = PostForm(request.POST)
+    if request.method == "POST":
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            new_post = form.save(commit=False)
-            new_post.title = request.POST['title']
-            new_post.body = request.POST['body']
-            new_post.image = request.FILES['fileInput']
-            new_post.pub_date = timezone.datetime.now()
-            new_post.author = request.user
-            new_post.save()
-            return redirect('/detail/' + str(new_post.id))
+            post = form.save(commit=False)
+            post.title = request.POST['title']
+            post.body = request.POST['body']
+            post.image = request.FILES['image']
+            post.writer = request.user
+            post.pub_date = timezone.now()
+            post.save()
+            return redirect('/blog/detail/' +  str(post.id))
     else:
         form = PostForm()
-        return render(request, 'blog/blog_detail.html', {'form': form})
+    return render(request, 'blog/blog_form.html', {'form': form})
 
 
+@login_required(login_url="/accounts/signup")
 def update(request, blog_id):
     post = get_object_or_404(Blog, pk=blog_id)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            post.title = request.POST['title']
+            post.body = request.POST['body']
+            post.image = request.FILES['image']
             post.pub_date = timezone.now()
             post.save()
-            return redirect('/detail/' + str(blog.id))
+            return redirect('/blog/detail' + str(post.id))
     else:
         form = PostForm(instance=post)
-        return render(request, 'blog/blog_form.html', {'form': form})
+    return render(request, 'blog/blog_form.html', {'form': form})
 
 
+@login_required(login_url="/accounts/signup")
 def delete(request, blog_id):
     post = Blog.objects.get(pk=blog_id)
     post.delete()

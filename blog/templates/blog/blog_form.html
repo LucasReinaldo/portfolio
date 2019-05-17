@@ -1,21 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 {% block content %}
     <main class="pt-5 bg-light" role="main">
-        <div class="album container pt-5">
-
-            <form method="POST" action="{% url 'create' %}" enctype="multipart/form-data">{% csrf_token %}
-                <div class="form-group">
-                    <label for="Title">Title:</label>
-                    <input required name="title" type="text" class="form-control" id="Title" value="{{ form.title }}"/>
+        <div class="album container col-9 pt-5">
+            <form method="POST" class="post-form" action="{% url 'create' %}" enctype="multipart/form-data">{% csrf_token %}
+                <div class="form-group" name="title">
+                    {{ form.title | as_crispy_field }}
                 </div>
-                <div class="form-group">
-                    <label for="Body">Body:</label>
-                    <textarea name="body" class="form-control" id="Body" rows="3" required></textarea>
+                <div class="form-group" name="body">
+                    {{ form.body | as_crispy_field }}
                 </div>
-                <div class="form-group">
-                    <label for="fileInput">File input</label>
-                    <input required name="fileInput" type="file" class="form-control-file" id="fileInput" value="{{ form.image }}"/>
+                <div class="form-group" name="fileInput">
+                    {{ form.image | as_crispy_field }}
                 </div>
                 <button class="btn btn-md btn-primary btn-block" type="submit" value="post it">Post It.</button>
             </form>
