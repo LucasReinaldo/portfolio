@@ -52,7 +52,7 @@ CKEDITOR_CONFIGS = {
     'default':{
         'toolbar':'Custom',
         'height': 500,
-        'extraPlugins': ','.join(['codesnippet','youtube']),
+        'extraPlugins': 'codesnippet'
     }
 }
 
