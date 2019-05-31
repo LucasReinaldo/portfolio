@@ -14,6 +14,12 @@
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
+        <link rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+        
         <style>
             .bd-placeholder-img {
             font-size: 1.125rem;
@@ -29,10 +35,17 @@
                 font-size: 3.5rem;
                 }
         }
+
+        .grow:hover
+        {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+        }
         </style>
 
         <!-- Custom styles for this template -->
-        {% comment %} <link href="portfolio/templates/base.css" rel="stylesheet"> {% endcomment %}
+        <link href= "{% static "base.css" rel="stylesheet" %}">
 
     </head>
 
@@ -78,11 +91,21 @@
 
     <footer class="text-muted">
         <div class="container text-center">
+        <br><br>
+            <span style="font-size: 3em">
+                <a title="Travel"><i class="fas fa-globe-americas text-dark"></i></a>
+                <a title="CoffeLover"><i class="fas fa-mug-hot text-dark"></i></a>
+                <a title="PizzaLover"><i class="fas fa-pizza-slice text-dark"></i></a>
+                <a title="CodeLover"><i class="fas fa-laptop-code text-dark"></i></a>
+                <a title="CycleLover"><i class="fas fa-bicycle text-dark"></i></a>
+                <a title="FutLover"><i class="fas fa-futbol text-dark"></i></a>                    
+            </span>
         {% comment %} 
             <p class="float-right"><a href="#">Back to top</a></p> 
         {% endcomment %}
-            <br>
+            <br><br>
             <p class="small">CopyRight&copy; 2019 - {% now "Y" %} | <a href="#" class="text-secondary"> Lucas Melo</a></p>
+            <br><br>
         </div>
     </footer>
 

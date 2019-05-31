@@ -20,6 +20,7 @@
             <hr>
             <img class="card-img-top text-dark" src="{{ blog.image.url }}" height="350" max-width="100%" alt="Card image cap">
             <p class="pt-3 text-justify">{{ blog.body }}</p>
+            {{ blog.description | safe}}
         </div>
     </main>
 {% endblock %}

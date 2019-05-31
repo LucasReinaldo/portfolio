@@ -24,6 +24,7 @@ def create(request):
             post = form.save(commit=False)
             post.title = request.POST['title']
             post.body = request.POST['body']
+            post.description = request.POST['description']
             post.image = request.FILES['image']
             post.writer = request.user
             post.pub_date = timezone.now()
@@ -43,6 +44,7 @@ def update(request, blog_id):
             post = form.save(commit=False)
             post.title = request.POST['title']
             post.body = request.POST['body']
+            post.description = request.POST['description']
             post.image = request.FILES['image']
             post.pub_date = timezone.now()
             post.save()

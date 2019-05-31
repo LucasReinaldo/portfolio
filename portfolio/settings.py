@@ -41,7 +41,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'ckeditor',
+    'ckeditor_uploader',
+
 ]
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar':'Custom',
+        'height': 500,
+        'extraPlugins': ','.join(['codesnippet','youtube']),
+    }
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

@@ -22,7 +22,9 @@ import blog.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', jobs.views.home, name='home'),
     path('blog/', include('blog.urls')),
     path('accounts/', include('accounts.urls')),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
