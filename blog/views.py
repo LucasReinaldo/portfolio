@@ -1,12 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-
+from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
-from django.utils import timezone
-
 from django.core.paginator import Paginator
-
+from django.utils import timezone
 from .models import Blog
 from .forms import PostForm
 
@@ -34,7 +31,7 @@ def create(request):
             create_post.writer = request.user
             create_post.pub_date = timezone.now()
             create_post.save()
-            return redirect('/blog/detail/' + str(create_post.id))
+            return HttpResponseRedirect(create_post.get_absolute_url())
     else:
         form = PostForm()
     return render(request, 'blog/blog_form.html', {'form': form})
@@ -48,7 +45,7 @@ def update(request, blog_id):
         update_post = form.save(commit=False)
         update_post.pub_date = timezone.now()
         update_post.save()
-        return redirect('/blog/detail/' + str(post.id))
+        return HttpResponseRedirect(post.get_absolute_url())
     return render(request, 'blog/blog_form.html', {'form': form})
 
 

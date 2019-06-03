@@ -23,3 +23,8 @@ class Blog(models.Model):
 
     def summary(self):
         return self.body[:200] + '[...]'
+
+
+    def get_absolute_url(self):
+        return reverse('detail', args=[str(self.id)])
+    
