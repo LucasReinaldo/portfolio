@@ -18,9 +18,10 @@
                 <input type="hidden">
             </form>
             <hr>
+            {% if blog.image.url %}
             <img class="card-img-top text-dark" src="{{ blog.image.url }}" height="350" max-width="100%" alt="Card image cap">
-            <p class="pt-3 text-justify">{{ blog.body }}</p>
-            {{ blog.description | safe}}
+            {% endif %}
+            <p class="pt-3 text-justify">{{ blog.body | safe }}</p>
         </div>
     </main>
 {% endblock %}

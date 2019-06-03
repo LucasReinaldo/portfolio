@@ -11,7 +11,6 @@ class Blog(models.Model):
     title = models.CharField(max_length=200)
     pub_date = models.DateTimeField()
     body = RichTextUploadingField()
-    description = RichTextUploadingField(blank=True, null=True, default='',)
     image = models.ImageField(upload_to='images/')
     votes = models.IntegerField(default = 1)
     writer = models.ForeignKey(User, on_delete=models.CASCADE, default='')

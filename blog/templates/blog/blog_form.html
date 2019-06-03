@@ -4,7 +4,7 @@
 {% block content %}
     <main class="pt-5 bg-light" role="main">
         <div class="album container col-9 pt-5">
-            <form method="POST" class="post-form" action="{% url 'create' %}" enctype="multipart/form-data">{% csrf_token %}
+            <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
             {{ form.media }}
                 <div class="form-group">
                     {{ form.title | as_crispy_field }}
@@ -12,10 +12,7 @@
                 <div class="form-group">
                     {{ form.body | as_crispy_field }}
                 </div>
-                <div class="form-group">
-                    {{ form.description | as_crispy_field }}
-                </div>
-                <div class="form-group">
+                <div class="form-group">Imagem de Capa
                     {{ form.image | as_crispy_field }}
                 </div>
                 <button class="btn btn-md btn-primary btn-block" type="submit" value="post it">Post It.</button>
