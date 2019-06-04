@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
@@ -62,3 +63,15 @@ def upvote(request, blog_id):
         post.votes += 1
         post.save()
         return redirect('/blog/detail/' + str(post.id))
+
+
+def search(request):
+    if request.method == "GET":
+        search = Blog.objects.all()
+        q = request.GET.get('q', '')
+        
+        if q is not None:
+            search = search.filter(
+                Q(title__icontains=q) | Q(body__icontains=q))
+
+        return render(request, 'blog/blog_list.html', {'blogs': search})
