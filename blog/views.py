@@ -10,7 +10,7 @@ from .forms import PostForm
 
 
 def blog(request):
-    blogs = Blog.objects.all()
+    blogs = Blog.objects.all().order_by('-pub_date')
     paginator = Paginator(blogs, 9)
     page = request.GET.get('page')
     blogs = paginator.get_page(page)
@@ -67,7 +67,7 @@ def upvote(request, blog_id):
 
 def search(request):
     if request.method == "GET":
-        search = Blog.objects.all()
+        search = Blog.objects.all().order_by('-pub_date')
         q = request.GET.get('q', '')
         
         if q is not None:

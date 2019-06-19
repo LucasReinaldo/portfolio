@@ -31,19 +31,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'accounts.apps.AccountsConfig',
-    'blog.apps.BlogConfig',
-    'jobs.apps.JobConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #Apps
+    'accounts.apps.AccountsConfig',
+    'blog.apps.BlogConfig',
+    'jobs.apps.JobConfig',
+    #Plugins
     'crispy_forms',
     'ckeditor',
     'ckeditor_uploader',
-
 ]
 
 CKEDITOR_UPLOAD_PATH = 'uploads/'

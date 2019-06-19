@@ -25,11 +25,11 @@
                 <div class="row">
                 {% for job in jobs.all %}
                     <div class="col-md-3">
-                        <a href="#" class="text-muted text-center">
+                        <a href="{{ job.site }}" class="text-muted text-center" target="_blank">
                             <div class="card mb-3 shadow-sm bg-light rounded grow">
                                 <img class="bd-placeholder-img card-img-top" width="100%" height="175" src="{{ job.image.url }}" role="img">
                                 <div class="card-body">
-                                    <p class="card-text"><small><strong>{{ job.summary }}</strong></small></p>
+                                    <p class="card-text"><small><strong>{{ job.title }}</strong></small></p>
                                 </div>
                             </div>
                         </a>
