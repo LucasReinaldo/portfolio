@@ -4,16 +4,17 @@
     <main class="pt-5 bg-light" role="main">
         <div class="album container col-9">
             <h1 class="pt-3 text-center">{{ blog.title }}</h1>
+            <span class="text-right">
             <p class="text-right">
                 <small class="text-muted">By: {{ blog.writer }} | {{ blog.pub_date }}</small><br>
-                
-                <a href="#" title="Share"><i class="far fa-share-square text-dark"></i></a> | 
-                <a href="javascript:{document.getElementById('upvote').submit()}" title="Like"><i class="far fa-thumbs-up text-dark">{{ blog.votes }}</i></a>
-                {% if user.is_authenticated %} | 
-                <a href="{% url 'update' blog.id %}" title="Edit"><i class="far fa-edit text-dark"></i></a> | 
-                <a href="{% url 'delete' blog.id %}" title="Delete"><i class="far fa-trash-alt text-dark"></i></a> 
+                <a class="snippet" style="cursor:pointer" type="button" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="far fa-share-square text-dark btn p-0" data-clipboard-text="{{request.get_full_path}}"></i></a> |
+                <a href="javascript:{document.getElementById('upvote').submit()}" title="Like"><i class="far fa-thumbs-up text-dark btn p-0">{{ blog.votes }}</i></a>
+                {% if user.is_authenticated %} |
+                <a href="{% url 'update' blog.id %}" title="Edit"><i class="far fa-edit text-dark btn p-0"></i></a> |
+                <a href="{% url 'delete' blog.id %}" title="Delete"><i class="far fa-trash-alt text-dark btn p-0"></i></a>
                 {% endif %}
             </p>
+            </span>
             <form method="POST" id="upvote" action="{% url 'upvote' blog.id %}">{% csrf_token %}
                 <input type="hidden">
             </form>

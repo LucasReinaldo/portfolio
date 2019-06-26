@@ -69,9 +69,9 @@ def search(request):
     if request.method == "GET":
         search = Blog.objects.all().order_by('-pub_date')
         q = request.GET.get('q', '')
-        
+
         if q is not None:
             search = search.filter(
-                Q(title__icontains=q) | Q(body__icontains=q))
+                Q(title__icontains=q) | Q(body__icontains=q)).distinct()
 
         return render(request, 'blog/blog_list.html', {'blogs': search})
