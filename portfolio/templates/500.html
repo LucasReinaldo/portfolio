@@ -1,2 +1,11 @@
-<h1>500 We Have a Problem</h1>
-<p>:|</p>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <main class="pt-5 bg-light" role="main">
+        <div class="album container col-9 text-center pt-3">
+            <h1 class="pt-3">500! We Have a Problem</h1>
+            <p class="pt-3">:|</p>
+        </div>
+    </main>
+{% endblock %}
