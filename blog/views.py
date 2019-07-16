@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator
+from django.contrib import messages
 from django.utils import timezone
 from .models import Blog
 from .forms import PostForm
@@ -46,6 +47,7 @@ def update(request, blog_id):
         update_post = form.save(commit=False)
         update_post.pub_date = timezone.now()
         update_post.save()
+        messages.success(request, f'Your post has been updated!')
         return HttpResponseRedirect(post.get_absolute_url())
     return render(request, 'blog/blog_form.html', {'form': form})
 

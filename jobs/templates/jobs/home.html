@@ -3,11 +3,18 @@
 {% block content %}
     <main role="main" class="bg-light">
         <section class="jumbotron text-center">
-            <div class="container pt-3">
+            <div class="container pt-2">
+                {% if messages %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                {% endif %}
                 <h2 class="jumbotron-heading">Hello there, I'm Lucas,</h2>
                 <p class="text-muted">A software developer based out of Dublin, Ireland. <br>
                 Positive, authentic energy, dynamic, team worker, open to learning and prepared for the challenge of exercising new roles and activities with flexibility. I always try to keep myself updated, with the purpose of personal and professional improvement. Also, dogfather, coffeelover, and pizzalover.<br></p>
-                <img class="center rounded-circle" src="{% static 'profile2.jpeg'%}" height="250" />
+                <img class="center rounded-circle" src="{% static 'profile2.jpeg' %}" height="250" />
                 <br><br>
                 <p class="text-muted">Have a project, idea or problem you'd like to discuss? <strong>Let's chat!</strong></p>
                 <span style="font-size: 2em">
@@ -34,7 +41,7 @@
                             </div>
                         </a>
                     </div>
-                    {% endfor %}
+                {% endfor %}
                 </div>
             </div>
         </div>

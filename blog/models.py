@@ -25,6 +25,6 @@ class Blog(models.Model):
         return self.body[:200] + '[...]'
 
 
-    def get_absolute_url(self):
+    def get_absolute_url(self, *args):
         return reverse('detail', args=[str(self.id)])
     

@@ -15,7 +15,10 @@
                 <div class="form-group">
                     {{ form.body | as_crispy_field }}
                 </div>
-                <button class="btn btn-md btn-primary btn-block" type="submit" value="post it">Post It</button>
+                <div class="text-right">
+                    <button class="btn btn-sm btn-primary" type="submit" value="post it">Post It</button>
+                    <a href="{% url 'blog' %}" class="btn btn-danger btn-sm" role="button" >Cancel</a>
+                </div>
                 <br>
             </form>
         </div>

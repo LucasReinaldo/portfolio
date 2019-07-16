@@ -1,20 +1,20 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-from django.contrib import auth
+from django.contrib import auth, messages
 
-# Create your views here.
 
 
 def signin(request):
     if request.method == 'POST':
-        # User has info and wants an account now!
+        # User has info and wants an account!
         if request.POST['password'] == request.POST['password1']:
             try:
-                user = User.objects.get(username=request.POST['email'])
-                return render(request, 'accounts/signin.html', {'error': 'Email has already been in use.'})
+                user = User.objects.get(username=request.POST['username'], email=request.POST['email'])
+                return render(request, 'accounts/signin.html', {'error': 'Email or Username has already been taken.'})
             except User.DoesNotExist:
-                user = User.objects.create_user(request.POST['email'], password=request.POST['password'])
+                user = User.objects.create_user(request.POST['username'], request.POST['email'], password=request.POST['password'])
                 auth.login(request, user)
+                messages.success(request, f'Your account has been created! You are now logged in.')
                 return redirect('home')
         else:
             return render(request, 'accounts/signin.html', {'error': 'Passwords must match.'})
@@ -25,12 +25,13 @@ def signin(request):
 
 def login(request):
     if request.method == 'POST':
-        user = auth.authenticate(username=request.POST['email'], password=request.POST['password'])
+        user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
+            messages.success(request, f'Welcome back!')
             return redirect('home')
         else:
-            return render(request, 'accounts/login.html', {'error': 'Email or password is incorrect.'})
+            return render(request, 'accounts/login.html', {'error': 'Username or password is incorrect.'})
     else:
         return render(request, 'accounts/login.html')
 
