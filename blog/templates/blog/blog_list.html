@@ -34,17 +34,17 @@
                 </div>
             </div>
         </div>
-        {% comment %} pagination {% endcomment %}
+        <!--  pagination  -->
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
-                <li class="page-item">
                 {% if blogs.has_previous %}
-                <a class="page-link text-dark" href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
+                <li class="page-item"><a class="page-link text-dark" href="?page=1">First</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="?page={{ blogs.previous_page_number }}" aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">Previous</span>
-                </a>
+                </a></li>
                 {% endif %}
-                </li>
+                
                 {% for num in blogs.paginator.page_range %}
                     {% if blogs.number == num %}
                         <li class="page-item"><a class="page-link text-dark" href="?page={{num}}"><strong>{{ num }}</strong></a></li>
@@ -57,6 +57,7 @@
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">Next</span>
                 </a>
+                <li class="page-item"><a class="page-link text-dark" href="?page={{ blogs.paginator.num_pages }}">Last</a></li>
                 {% endif %}
             </ul><br>
         </nav>

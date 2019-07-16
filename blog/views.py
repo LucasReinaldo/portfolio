@@ -33,6 +33,7 @@ def create(request):
             create_post.writer = request.user
             create_post.pub_date = timezone.now()
             create_post.save()
+            messages.success(request, f'Your post has been created!')
             return HttpResponseRedirect(create_post.get_absolute_url())
     else:
         form = PostForm()
