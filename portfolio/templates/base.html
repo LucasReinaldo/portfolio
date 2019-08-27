@@ -56,11 +56,9 @@
                 </div>
             </nav>
         </header>
-
         {% block content %}
         
         {% endblock %}
-
     </body>
 
     <footer class="text-muted">
@@ -74,9 +72,9 @@
                 <a title="CycleLover"><i class="fas fa-bicycle text-dark"></i></a>
                 <a title="FutLover"><i class="fas fa-futbol text-dark"></i></a>
             </span>
-        {% comment %}
-            <p class="float-right"><a href="#">Back to top</a></p>
-        {% endcomment %}
+       
+            <!-- <p class="float-right"><a href="#">Back to top</a></p> -->
+        
             <br><br>
             <p class="small">CopyRight&copy; 2019 - {% now "Y" %} | <a href="{% url 'home' %}" class="text-secondary"> Lucas Melo</a></p>
             <br><br>
