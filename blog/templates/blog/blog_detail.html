@@ -16,7 +16,7 @@
             <span class="text-right">
             <p class="text-right">
                 <small class="text-muted">By: {{ blog.writer }} | {{ blog.pub_date }}</small><br>
-                <a class="snippet" style="cursor:pointer" type="button" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="far fa-share-square text-dark btn p-0" data-clipboard-text="{{request.get_full_path}}"></i></a> |
+                <a class="snippet" style="cursor:pointer" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="far fa-share-square text-dark btn p-0" data-clipboard-text="{{request.get_full_path}}"></i></a> |
                 <a href="javascript:{document.getElementById('upvote').submit()}" title="Like"><i class="far fa-thumbs-up text-dark btn p-0">{{ blog.votes }}</i></a>
                 {% if user.is_authenticated %} |
                 <a href="{% url 'update' blog.id %}" title="Edit"><i class="far fa-edit text-dark btn p-0"></i></a> |

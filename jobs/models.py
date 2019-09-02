@@ -5,7 +5,7 @@ from django.utils import timezone
 
 class Job(models.Model):
     title = models.CharField(max_length=100)
-    summary = models.CharField(max_length=800)
+    summary = models.CharField(max_length=1400)
     challenge = models.CharField(max_length=500)
     team = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
