@@ -14,7 +14,7 @@ def signin(request):
             except User.DoesNotExist:
                 user = User.objects.create_user(request.POST['username'], request.POST['email'], password=request.POST['password'])
                 auth.login(request, user)
-                messages.success(request, f'Your account has been created! You are now logged in.')
+                messages.success(request, 'Your account has been created! You are now logged in.')
                 return redirect('home')
         else:
             return render(request, 'accounts/signin.html', {'error': 'Passwords must match.'})
@@ -28,7 +28,7 @@ def login(request):
         user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
         if user is not None:
             auth.login(request, user)
-            messages.success(request, f'Welcome back!')
+            messages.success(request, 'Welcome back!')
             return redirect('home')
         else:
             return render(request, 'accounts/login.html', {'error': 'Username or password is incorrect.'})

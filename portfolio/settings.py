@@ -53,9 +53,10 @@ CKEDITOR_CONFIGS = {
     'default':{
         'toolbar':'Custom',
         'width': '100%',
-        'height': 600,
-        'extraPlugins': ['codesnippet'],
-    }
+        'height': 400,
+        # 'extraPlugins': ['codesnippet'],
+        'extraPlugins': ','.join(['codesnippet', 'embed',]),
+        }
 }
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

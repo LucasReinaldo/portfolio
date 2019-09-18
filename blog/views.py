@@ -33,7 +33,7 @@ def create(request):
             create_post.writer = request.user
             create_post.pub_date = timezone.now()
             create_post.save()
-            messages.success(request, f'Your post has been created!')
+            messages.success(request, 'Your post has been created!')
             return HttpResponseRedirect(create_post.get_absolute_url())
     else:
         form = PostForm()
@@ -48,7 +48,7 @@ def update(request, blog_id):
         update_post = form.save(commit=False)
         update_post.pub_date = timezone.now()
         update_post.save()
-        messages.success(request, f'Your post has been updated!')
+        messages.success(request, 'Your post has been updated!')
         return HttpResponseRedirect(post.get_absolute_url())
     return render(request, 'blog/blog_form.html', {'form': form})
 
