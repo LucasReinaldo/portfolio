@@ -68,7 +68,7 @@ def upvote(request, blog_id):
         return redirect('/blog/detail/' + str(post.id))
 
 
-def search(request):
+def search_query(request):
     if request.method == "GET":
         search = Blog.objects.all().order_by('-pub_date')
         q = request.GET.get('q', '')
